@@ -44,9 +44,8 @@ Trang web "Lịch sử Lâm Đồng" cung cấp thông tin, bài học, và các
 
 ## Liên hệ & đóng góp
 
-- Tác giả: [Tên của bạn]
-- Email: [Email của bạn]
-- Đóng góp: Vui lòng tạo Pull Request hoặc Issue trên Github.
+- Tác giả: Phan Thái Bảo
+- Email: phanbao2648@gmail.com
 
 ---
 
