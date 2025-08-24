@@ -1,4 +1,4 @@
-// src/utils/dbConfig.ts
+// src/utils/dbConfig.js
 export const dbConfig = {
   user: 'your_username',
   password: 'your_password',

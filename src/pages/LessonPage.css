@@ -1,19 +1,25 @@
 .lesson-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+  transition: background 0.3s ease;
 }
 
 .lesson-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--gradient-secondary);
+  color: var(--text-light);
   padding: 2rem 5%;
   position: relative;
 }
 
+[data-theme="dark"] .lesson-header {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
 .back-button {
-  background: rgba(255,255,255,0.2);
-  border: none;
-  color: white;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
   display: flex;
@@ -21,14 +27,22 @@
   gap: 0.5rem;
   font-weight: 600;
   cursor: pointer;
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   margin-bottom: 2rem;
 }
 
 .back-button:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+}
+
+[data-theme="dark"] .back-button {
+  background: rgba(22, 33, 62, 0.6);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .back-button:hover {
+  background: rgba(22, 33, 62, 0.8);
 }
 
 .lesson-meta {
@@ -40,7 +54,8 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px var(--shadow-dark);
+  color: var(--text-light);
 }
 
 .meta-tags {
@@ -50,14 +65,21 @@
 }
 
 .tag {
-  background: rgba(255,255,255,0.2);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  backdrop-filter: blur(10px);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .tag {
+  background: rgba(22, 33, 62, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .lesson-content {
@@ -509,38 +531,325 @@
   font-size: 0.9rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile & Tablet Responsive Design */
+
+/* Mobile (max-width: 575px) */
+@media (max-width: 575px) {
   .lesson-header {
-    padding: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .back-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
   
   .location-info h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .meta-tags {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem;
+  }
+  
+  .tag {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    justify-content: center;
+  }
+  
+  .lesson-content {
+    padding: 0 0.5rem;
+  }
+  
+  .panorama-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+  }
+  
+  .panorama-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .panorama-container {
+    height: 200px;
+  }
+  
+  .lesson-intro {
+    padding: 1.5rem 1rem;
+  }
+  
+  .lesson-intro h2 {
+    font-size: 1.5rem;
+  }
+  
+  .lesson-description {
+    font-size: 1rem;
+  }
+  
+  .content-section {
+    padding: 1rem;
+  }
+  
+  .content-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content-item.text p {
+    font-size: 0.95rem;
+  }
+  
+  .gallery-section {
+    padding: 1rem;
+  }
+  
+  .main-image {
+    height: 200px;
+  }
+  
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .thumbnail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+  
+  .thumbnail-grid img {
+    height: 60px;
+  }
+  
+  .significance-section {
+    padding: 1rem;
+  }
+  
+  .significance-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .significance-card {
+    padding: 1rem;
+  }
+  
+  .significance-card p {
+    font-size: 1rem;
+  }
+  
+  .characteristics-section {
+    padding: 1rem;
+  }
+  
+  .characteristics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .characteristic-item {
+    padding: 0.8rem;
+  }
+  
+  .characteristic-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+  
+  .timeline-section {
+    padding: 1rem;
+  }
+  
+  .timeline {
+    padding-left: 1rem;
+  }
+  
+  .timeline-item {
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .quiz-cta {
+    padding: 1.5rem 1rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .cta-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  .quiz-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet (576px to 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .lesson-header {
+    padding: 1.5rem;
+  }
+  
+  .back-button {
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .location-info h1 {
+    font-size: 1.8rem;
+  }
+  
+  .meta-tags {
+    flex-direction: row;
+    gap: 0.8rem;
+    flex-wrap: wrap;
   }
   
   .lesson-content {
     padding: 0 1rem;
   }
   
+  .panorama-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .panorama-section h2 {
+    font-size: 1.5rem;
+  }
+  
   .panorama-container {
-    height: 250px;
+    height: 280px;
+  }
+  
+  .lesson-intro {
+    padding: 2rem 1.5rem;
+  }
+  
+  .lesson-intro h2 {
+    font-size: 1.8rem;
+  }
+  
+  .content-section {
+    padding: 1.5rem;
+  }
+  
+  .content-section h3 {
+    font-size: 1.5rem;
   }
   
   .main-image {
-    height: 250px;
+    height: 280px;
+  }
+  
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .thumbnail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+  
+  .thumbnail-grid img {
+    height: 80px;
   }
   
   .characteristics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   
   .timeline {
     padding-left: 1.5rem;
+  }
+  
+  .quiz-cta {
+    padding: 2rem 1.5rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .quiz-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Large Tablet/Small Desktop (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lesson-header {
+    padding: 2rem 3%;
+  }
+  
+  .lesson-content {
+    padding: 0 3%;
+  }
+  
+  .panorama-container {
+    height: 350px;
+  }
+  
+  .main-image {
+    height: 320px;
+  }
+  
+  .characteristics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .quiz-cta {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* Touch-friendly enhancements for mobile */
+@media (max-width: 768px) {
+  /* Disable hover animations on touch devices */
+  .characteristic-item:hover {
+    transform: none;
+  }
+  
+  .quiz-button:hover {
+    transform: none;
+  }
+  
+  /* Better touch targets */
+  .back-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .nav-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .quiz-button {
+    min-height: 44px;
+  }
+  
+  /* Improved readability */
+  .content-item.text p {
+    text-align: left;
+    line-height: 1.7;
+  }
+  
+  .timeline-event {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 }

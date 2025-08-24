@@ -1,19 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Book, Camera, Clock, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Location } from '../types';
 import './LessonPage.css';
 
-interface LessonPageProps {
-  location: Location;
-  onBack: () => void;
-  onQuizStart: () => void;
-}
-
-const LessonPage: React.FC<LessonPageProps> = ({ location, onBack, onQuizStart }) => {
+const LessonPage = ({ location, onBack, onQuizStart }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPanoramaLoaded, setIsPanoramaLoaded] = useState(false);
-  const panoramaRef = useRef<HTMLDivElement>(null);
+  const panoramaRef = useRef(null);
 
   // Simulate panorama viewer (would normally use Pannellum)
   useEffect(() => {

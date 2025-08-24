@@ -1,6 +1,4 @@
-import { Region } from '../types';
-
-export const lamDongData: Region[] = [
+export const lamDongData = [
   {
     id: 'da-lat',
     name: 'Thành phố Đà Lạt',

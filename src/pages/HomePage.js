@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Book, Award } from 'lucide-react';
-import { Region } from '../types';
 import { lamDongData } from '../data/lamDongData';
 import './HomePage.css';
 
-interface HomePageProps {
-  onRegionSelect: (region: Region) => void;
-}
-
-const HomePage: React.FC<HomePageProps> = ({ onRegionSelect }) => {
-  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
+const HomePage = ({ onRegionSelect }) => {
+  const [hoveredRegion, setHoveredRegion] = useState(null);
 
   return (
     <div className="home-page">

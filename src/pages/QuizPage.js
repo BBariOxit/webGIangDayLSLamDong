@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Clock, CheckCircle, XCircle, Award, RotateCcw } from 'lucide-react';
-import { Location, QuizResult } from '../types';
 import './QuizPage.css';
 
-interface QuizPageProps {
-  location: Location;
-  onBack: () => void;
-  onComplete: (result: QuizResult) => void;
-}
-
-const QuizPage: React.FC<QuizPageProps> = ({ location, onBack, onComplete }) => {
+const QuizPage = ({ location, onBack, onComplete }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number }>({});
+  const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResult, setShowResult] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(300); // 5 minutes
-  const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
+  const [quizResult, setQuizResult] = useState(null);
 
   const { quiz } = location;
   const totalQuestions = quiz.questions.length;
@@ -37,13 +30,13 @@ const QuizPage: React.FC<QuizPageProps> = ({ location, onBack, onComplete }) => 
     return () => clearInterval(timer);
   }, [showResult]);
 
-  const formatTime = (seconds: number) => {
+  const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-  const handleAnswerSelect = (answerIndex: number) => {
+  const handleAnswerSelect = (answerIndex) => {
     setSelectedAnswers({
       ...selectedAnswers,
       [currentQuestion]: answerIndex
@@ -73,7 +66,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ location, onBack, onComplete }) => 
 
     const score = answers.filter(answer => answer.correct).length;
     
-    const result: QuizResult = {
+    const result = {
       score,
       totalQuestions,
       answers
@@ -92,7 +85,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ location, onBack, onComplete }) => 
     setQuizResult(null);
   };
 
-  const getScoreMessage = (score: number, total: number) => {
+  const getScoreMessage = (score, total) => {
     const percentage = (score / total) * 100;
     if (percentage >= 80) return "Xuất sắc! Bạn đã nắm vững kiến thức.";
     if (percentage >= 60) return "Tốt! Bạn có hiểu biết khá tốt.";
@@ -100,7 +93,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ location, onBack, onComplete }) => 
     return "Hãy đọc lại bài học và thử lại nhé!";
   };
 
-  const getScoreColor = (score: number, total: number) => {
+  const getScoreColor = (score, total) => {
     const percentage = (score / total) * 100;
     if (percentage >= 80) return "#4CAF50";
     if (percentage >= 60) return "#FF9800";

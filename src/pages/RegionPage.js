@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, Clock, Book, Star } from 'lucide-react';
-import { Region, Location } from '../types';
 import './RegionPage.css';
 
-interface RegionPageProps {
-  region: Region;
-  onLocationSelect: (location: Location) => void;
-  onBack: () => void;
-}
-
-const RegionPage: React.FC<RegionPageProps> = ({ region, onLocationSelect, onBack }) => {
-  const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
+const RegionPage = ({ region, onLocationSelect, onBack }) => {
+  const [hoveredLocation, setHoveredLocation] = useState(null);
 
   return (
     <div className="region-page">

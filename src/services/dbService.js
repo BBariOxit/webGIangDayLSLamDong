@@ -1,6 +1,4 @@
-// src/services/dbService.ts
-import { ConnectionPool } from 'mssql';
-
+// src/services/dbService.js
 const config = {
   user: 'your_username',
   password: 'your_password',
@@ -13,6 +11,7 @@ const config = {
 };
 
 export async function getConnection() {
+  const { ConnectionPool } = await import('mssql');
   const pool = new ConnectionPool(config);
   await pool.connect();
   return pool;
