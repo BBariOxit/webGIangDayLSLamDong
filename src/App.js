@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
+import AuthButton from './components/AuthButton';
 import HomePage from './pages/HomePage';
 import RegionPage from './pages/RegionPage';
 import LessonPage from './pages/LessonPage';
@@ -10,6 +11,7 @@ import './App.css';
 
 function App() {
   const [appState, setAppState] = useState({ page: 'home' });
+  const [user, setUser] = useState(null);
 
   const navigateToRegion = (region) => {
     setAppState({ page: 'region', region });
@@ -31,8 +33,6 @@ function App() {
     if (appState.page === 'region') {
       navigateToHome();
     } else if (appState.page === 'lesson' && appState.location) {
-      // Navigate back to region containing this location
-      // For simplicity, we'll go back to home, but you could implement proper region navigation
       navigateToHome();
     } else if (appState.page === 'quiz' && appState.location) {
       navigateToLesson(appState.location);
@@ -40,9 +40,7 @@ function App() {
   };
 
   const handleQuizComplete = (result) => {
-    // You can save the result to localStorage or send to a backend
     console.log('Quiz completed:', result);
-    // For now, just log the result
   };
 
   return (
@@ -51,12 +49,11 @@ function App() {
         <div className="theme-toggle-container">
           <ThemeToggle />
         </div>
-        
+        <AuthButton user={user} onLogin={setUser} onLogout={() => setUser(null)} />
         <AnimatePresence mode="wait">
           {appState.page === 'home' && (
             <HomePage key="home" onRegionSelect={navigateToRegion} />
           )}
-          
           {appState.page === 'region' && (
             <RegionPage 
               key="region"
@@ -65,7 +62,6 @@ function App() {
               onBack={navigateBack}
             />
           )}
-          
           {appState.page === 'lesson' && (
             <LessonPage 
               key="lesson"
@@ -74,7 +70,6 @@ function App() {
               onQuizStart={() => navigateToQuiz(appState.location)}
             />
           )}
-          
           {appState.page === 'quiz' && (
             <QuizPage 
               key="quiz"

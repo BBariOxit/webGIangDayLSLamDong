@@ -1,16 +1,5 @@
 # Lam Dong History Website
 
-## Tính năng
-
-- 🌙 **Dark/Light Mode**: Chế độ tối/sáng tự động hoặc thủ công
-- 📱 **Responsive Design**: Tương thích hoàn hảo với mọi thiết bị
-- 🗺️ **Bản đồ tương tác**: Khám phá các khu vực khác nhau của Lâm Đồng
-- 🏛️ **Địa điểm lịch sử**: 10+ địa điểm quan trọng với câu chuyện riêng
-- 📚 **Bài học chi tiết**: Nội dung học tập phong phú với hình ảnh, timeline
-- 🌐 **Hình ảnh 360°**: Trải nghiệm không gian thực tế (sử dụng Pannellum)
-- 🎯 **Trắc nghiệm vui**: Kiểm tra kiến thức với hệ thống chấm điểm
-- 💾 **Lưu trữ cục bộ**: Theme và tiến trình được lưu tự động
-
 ## Giới thiệu
 
 Trang web "Lịch sử Lâm Đồng" cung cấp thông tin, bài học, và các bài kiểm tra về lịch sử vùng đất Lâm Đồng. Dự án sử dụng React JavaScript và hỗ trợ kết nối dữ liệu với SQL Server.

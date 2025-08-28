@@ -1,0 +1,44 @@
+.auth-button-container {
+  position: fixed;
+  top: 20px;
+  right: 90px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+}
+
+.login-btn, .logout-btn {
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 25px;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: all 0.2s;
+}
+
+.login-btn:hover, .logout-btn:hover {
+  background: var(--primary-dark);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.user-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
