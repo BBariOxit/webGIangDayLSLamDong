@@ -44,6 +44,14 @@
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s;
+  outline: none;
+  box-shadow: none;
+}
+
+.auth-tabs button:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
 }
 .auth-tabs button.active {
   color: var(--primary-color);
@@ -96,6 +104,8 @@
   gap: 0.7rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: background 0.2s;
+  width: 100%;
+  justify-content: center;
 }
 .google-btn img {
   width: 22px;
